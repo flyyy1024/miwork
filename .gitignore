@@ -4,7 +4,7 @@
 *.apk
 *.ap_
 
-#测试
+
 # Files for the ART/Dalvik VM
 
 *.dex

@@ -15,6 +15,11 @@ public class Word {
         mImageId = imageId;
     }
 
+    public Word(String defaultWord, String miworkWord) {
+        mMiworkWord = miworkWord;
+        mDefaultWord = defaultWord;
+    }
+
     public String getMiworkWord() {
         return mMiworkWord;
     }

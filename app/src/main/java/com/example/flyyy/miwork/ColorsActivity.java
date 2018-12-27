@@ -24,7 +24,7 @@ public class ColorsActivity extends AppCompatActivity {
         words.add(new Word("white", "kelelli", R.drawable.color_white));
 
         WordAdapter itermsAdapter = new WordAdapter(this, words);
-        ListView listView = (ListView) findViewById(R.id.list);
+        ListView listView = findViewById(R.id.list);
         listView.setAdapter(itermsAdapter);
 
     }

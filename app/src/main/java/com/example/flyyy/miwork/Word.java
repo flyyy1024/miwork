@@ -7,10 +7,12 @@ package com.example.flyyy.miwork;
 public class Word {
     private String mMiworkWord;
     private String mDefaultWord;
+    private int mImageId;
 
-    public Word(String defaultWord, String miworkWord) {
+    public Word(String defaultWord, String miworkWord, int imageId) {
         mMiworkWord = miworkWord;
         mDefaultWord = defaultWord;
+        mImageId = imageId;
     }
 
     public String getMiworkWord() {
@@ -19,5 +21,9 @@ public class Word {
 
     public String getDefaultWord() {
         return mDefaultWord;
+    }
+
+    public int getmImageId() {
+        return mImageId;
     }
 }

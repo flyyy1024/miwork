@@ -12,8 +12,6 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    private static final String LOG_TAG = WordAdapter.class.getSimpleName();
-
     /**
      * This is our own custom constructor (it doesn't mirror a superclass constructor).
      * The context is used to inflate the layout file, and the list is the data we want
@@ -55,8 +53,12 @@ public class WordAdapter extends ArrayAdapter<Word> {
         defaultTextView.setText(currentWord.getDefaultWord());
 
         ImageView imageView = listItemView.findViewById(R.id.image_view);
-        imageView.setImageResource(currentWord.getmImageId());
-
+        if (currentWord.hasImage()) {
+            imageView.setImageResource(currentWord.getmImageId());
+            imageView.setVisibility(View.VISIBLE);
+        } else {
+            imageView.setVisibility(View.GONE);
+        }
 
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView

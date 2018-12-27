@@ -7,7 +7,8 @@ package com.example.flyyy.miwork;
 public class Word {
     private String mMiworkWord;
     private String mDefaultWord;
-    private int mImageId;
+    private int mImageId = NO_IMAGE_PROVIDED;
+    private static final int NO_IMAGE_PROVIDED = -1;
 
     public Word(String defaultWord, String miworkWord, int imageId) {
         mMiworkWord = miworkWord;
@@ -30,5 +31,9 @@ public class Word {
 
     public int getmImageId() {
         return mImageId;
+    }
+
+    public boolean hasImage() {
+        return mImageId != NO_IMAGE_PROVIDED;
     }
 }

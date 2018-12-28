@@ -14,10 +14,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         /*找到各类别View*/
-        TextView numbers = (TextView) findViewById(R.id.numbers);
-        TextView family = (TextView) findViewById(R.id.family);
-        TextView colors = (TextView) findViewById(R.id.colors);
-        TextView phrases = (TextView) findViewById(R.id.phrases);
+        TextView numbers = findViewById(R.id.numbers);
+        TextView family = findViewById(R.id.family);
+        TextView colors = findViewById(R.id.colors);
+        TextView phrases = findViewById(R.id.phrases);
 
         /*在各View上设置监听器,通过intent打开activity*/
         numbers.setOnClickListener(new View.OnClickListener() {
@@ -35,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
         colors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this , ColorsActivity.class));
+                startActivity(new Intent(MainActivity.this, ColorsActivity.class));
             }
         });
         phrases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this , PhrasesActivity.class));
+                startActivity(new Intent(MainActivity.this, PhrasesActivity.class));
             }
         });
     }

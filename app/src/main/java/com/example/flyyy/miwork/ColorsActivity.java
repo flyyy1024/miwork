@@ -12,6 +12,13 @@ import java.util.ArrayList;
 public class ColorsActivity extends AppCompatActivity {
 
     private MediaPlayer mMediaPlayer;
+    //定义媒体播放完毕回调监听器，释放媒体资源
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            releaseMediaPlayer();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +44,28 @@ public class ColorsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Word currentWord = words.get(i);
+                //用户点击其他Item时释放媒体资源
+                releaseMediaPlayer();
                 mMediaPlayer = MediaPlayer.create(ColorsActivity.this, currentWord.getmMusicId());
                 mMediaPlayer.start();
+                //设置监听器，媒体播放完毕时释放媒体资源
+                mMediaPlayer.setOnCompletionListener(mCompletionListener);
             }
         });
+    }
+
+    //释放媒体资源
+    private void releaseMediaPlayer() {
+        if (mMediaPlayer != null) {
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+        }
+    }
+
+    //用户离开Activity时释放媒体资源
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
     }
 }
